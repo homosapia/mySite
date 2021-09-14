@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j2WBtpPvZOHi2rTn9s5SR2NhxYDjVTNmxaYil1j2JSNINOytfJdw5u9Z4s83Haqovz5mQk0NnUZfDGTv9TUG0w==",
+  "dgSpecHash": "4IE00LzrO/W1gG4EcNa76QnWuJ1kUkvU/Vcet9VjxXotWtkv1baEu5EP18dVsJ9B3YYFGbSODuY4B8KYwsq8/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\site\\My_Site\\My_Site.csproj",
+  "projectFilePath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\My_Site.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",

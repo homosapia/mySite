@@ -16,39 +16,38 @@ namespace My_Site.Co
     {
         public IActionResult Site()
         {
-            ListModel model = new ListModel();
-            
-            HttpContext.Session.Set<ListModel>(model);
+            ObjectsModel model = new();
+            HttpContext.Session.SetObjects(model);
             
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Site(ListModel model)
+        public IActionResult Site(ObjectsModel Postmodel)
         {
-            ListModel listModel = HttpContext.Session.Get<ListModel>();
-            MethodsForController methods = new MethodsForController(listModel);
+            ObjectsModel model = HttpContext.Session.GetObjects();
 
-            if (methods.ÑheckValue(model))
-                return View(listModel);
+            MethodsForController methods = new(model);
 
+            if (methods.ÑheckValue(Postmodel))
+                return View(model);
 
-            methods.AddValueChangeTrust(model);
+            methods.AddValueChangeTrust(Postmodel);
 
-            HttpContext.Session.Set(listModel);
-            return View(listModel);
+            HttpContext.Session.SetObjects(model);
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult onClik(ListModel model)
+        public IActionResult OnClik()
         {
-            ListModel listModel = HttpContext.Session.Get<ListModel>();
-            MethodsForController methods = new MethodsForController(listModel);
+            ObjectsModel model = HttpContext.Session.GetObjects();
+            MethodsForController methods = new(model);
 
             methods.AddNumbersForPsychics();
 
-            HttpContext.Session.Set<ListModel>(listModel);
-            return View("~/Views/Home/Site.cshtml", listModel);
+            HttpContext.Session.SetObjects(model);
+            return View("~/Views/Home/Site.cshtml", model);
         }
     }
 }

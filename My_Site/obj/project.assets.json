@@ -6822,11 +6822,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\site\\My_Site\\My_Site.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\My_Site.csproj",
       "projectName": "Psychics",
-      "projectPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\site\\My_Site\\My_Site.csproj",
+      "projectPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\My_Site.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\site\\My_Site\\obj\\",
+      "outputPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",

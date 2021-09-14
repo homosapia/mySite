@@ -6,33 +6,31 @@ using System.Threading.Tasks;
 
 namespace My_Site.Scripts.Intermediate
 {
-    public class MethodsForController
+    public class MethodsForController : MethodsForListModel
     {
-        private ListModel listModel;
-        MethodsForListModel Methods;
+        private ObjectsModel Objects;
 
-        public MethodsForController(ListModel model)
+        public MethodsForController(ObjectsModel model)
         {
-            listModel = model;
-            Methods = new MethodsForListModel();
+            Objects = model;
         }
 
         public void AddNumbersForPsychics()
         {
-            Methods.onClic(listModel, true);
-            Methods.WitchNamber(listModel);
+            ClicUser(Objects, true);
+            WitchNamber(Objects);
         }
 
-        public void AddValueChangeTrust(ListModel PostModel)
+        public void AddValueChangeTrust(ObjectsModel PostModel)
         {
-            Methods.NamberUser(listModel, PostModel.UserNamber.namber);
-            Methods.CheckingForMatch(listModel, PostModel.UserNamber.namber);
-            Methods.onClic(listModel, false);
+            ClicUser(Objects, false);
+            NamberUser(Objects, PostModel.User.Namber);
+            CheckingForMatch(Objects, PostModel.User.Namber);
         }
 
-        public bool СheckValue(ListModel PostModel)
+        public bool СheckValue(ObjectsModel PostModel)
         {
-            return PostModel.UserNamber.namber.ToString().Length != 2 || PostModel.UserNamber.namber < 0;
+            return PostModel.User.Namber.ToString().Length != 2 || PostModel.User.Namber < 0;
         }
     }
 }

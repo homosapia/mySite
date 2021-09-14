@@ -2,16 +2,14 @@ using System.Collections.Generic;
 
 namespace My_Site
 {
-    public class UserNamber
+    public class User
     {
 
-        public int namber { set; get; }
-
-        public bool onClik { set; get; }
+        public int Namber { set; get; }
 
         public List<int> ArrayNamber { set; get; }
         
-        public UserNamber()
+        public User()
         {
             ArrayNamber = new List<int>();
         }

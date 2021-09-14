@@ -10,15 +10,15 @@ namespace My_Site.Scripts
 {
     public static class SessionExtensions
     {
-        public static void Set<ListModel>(this ISession session, ListModel value)
+        public static void SetObjects(this ISession session, ObjectsModel value)
         {
-            session.SetString("listModel", JsonSerializer.Serialize<ListModel>(value));
+            session.SetString("Objects", JsonSerializer.Serialize<ObjectsModel>(value));
         }
 
-        public static ListModel Get<ListModel>(this ISession session)
+        public static ObjectsModel GetObjects(this ISession session)
         {
-            var value = session.GetString("listModel");
-            return value == null ? default(ListModel) : JsonSerializer.Deserialize<ListModel>(value);
+            var value = session.GetString("Objects");
+            return value == null ? default : JsonSerializer.Deserialize<ObjectsModel>(value);
         }
     }
 }

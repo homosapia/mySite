@@ -8,35 +8,36 @@ namespace My_Site.Scripts
 {
     public class MethodsForListModel
     {
-        public ListModel onClic(ListModel model, bool onClic)
-        {
-            model.UserNamber.onClik = onClic;
-            return model;
-        }
 
-        public void WitchNamber(ListModel model)
+
+        public void ClicUser(ObjectsModel model, bool clic)
+        {
+            model.ClickUser = clic;
+        }
+        public void WitchNamber(ObjectsModel model)
         {
             Random random = new Random();
-            model.PsychicNamber.AllNumbersPsychic1.Add(random.Next(10, 99));
-            model.PsychicNamber.AllNumbersPsychic2.Add(random.Next(10, 99));
+
+            foreach(var i in model.Psychics)
+            {
+                i.AllNumbersPsychic.Add(random.Next(10, 99));
+            };
         }
 
-        public void NamberUser(ListModel model, int value)
+        public void NamberUser(ObjectsModel model, int value)
         {
-            model.UserNamber.ArrayNamber.Add(value);
+            model.User.ArrayNamber.Add(value);
         }
 
-        public void CheckingForMatch(ListModel model, int value)
+        public void CheckingForMatch(ObjectsModel model, int value)
         {
-            if (model.PsychicNamber.AllNumbersPsychic1[model.PsychicNamber.AllNumbersPsychic1.Count - 1] == value)
-                model.PsychicNamber.confidence1++;
-            else
-                model.PsychicNamber.confidence1--;
-
-            if (model.PsychicNamber.AllNumbersPsychic2[model.PsychicNamber.AllNumbersPsychic2.Count - 1] == value)
-                model.PsychicNamber.confidence2++;
-            else
-                model.PsychicNamber.confidence2--;
+            for (int i = 0; i < model.Psychics.Count; i++)
+            {
+                if (model.Psychics[i].AllNumbersPsychic[^1] == value)
+                    model.Psychics[i].Trust++;
+                else
+                    model.Psychics[i].Trust--;
+            }
         }
     }
 }
