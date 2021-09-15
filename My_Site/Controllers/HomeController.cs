@@ -2,13 +2,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using My_Site.ViewsModel;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
 using My_Site.Scripts;
 using System.Text.Json;
-using My_Site.Scripts.Intermediate;
+using My_Site.Service;
 
 namespace My_Site.Co
 {
@@ -16,38 +15,32 @@ namespace My_Site.Co
     {
         public IActionResult Site()
         {
-            ObjectsModel model = new();
+            GameModel model = new();
             HttpContext.Session.SetObjects(model);
-            
-            return View(model);
+            return View("~/Views/Home/ClickUser.cshtml", model);
         }
 
         [HttpPost]
-        public IActionResult Site(ObjectsModel Postmodel)
+        public IActionResult InputNamber(GameModel postModel)
         {
-            ObjectsModel model = HttpContext.Session.GetObjects();
+            GameModel model = HttpContext.Session.GetObjects();
 
-            MethodsForController methods = new(model);
-
-            if (methods.ÑheckValue(Postmodel))
-                return View(model);
-
-            methods.AddValueChangeTrust(Postmodel);
+            model.RememberInputUser(postModel.InputUser);
+            model.game.Ñomparison(postModel.InputUser);
 
             HttpContext.Session.SetObjects(model);
-            return View(model);
+            return View("~/Views/Home/ClickUser.cshtml", model);
         }
 
         [HttpPost]
         public IActionResult OnClik()
         {
-            ObjectsModel model = HttpContext.Session.GetObjects();
-            MethodsForController methods = new(model);
+            GameModel model = HttpContext.Session.GetObjects();
 
-            methods.AddNumbersForPsychics();
+            model.WriteValuesToRound();
 
             HttpContext.Session.SetObjects(model);
-            return View("~/Views/Home/Site.cshtml", model);
+            return View("~/Views/Home/InputNamber.cshtml", model);
         }
     }
 }

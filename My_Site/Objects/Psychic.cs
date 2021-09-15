@@ -1,15 +1,15 @@
+using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
 namespace My_Site
 {
     public class Psychic
     {
-        public List<int> AllNumbersPsychic { set; get; }
-
-        public int Trust { get; set; }
-
-        public Psychic()
+        public int NumberGeneration()
         {
-            AllNumbersPsychic = new List<int>();
+            Random random = new Random();
+            return random.Next(10,99);
         }
     }
 }

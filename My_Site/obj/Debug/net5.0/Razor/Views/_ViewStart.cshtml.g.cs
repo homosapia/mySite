@@ -13,15 +13,15 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\Views\_ViewImports.cshtml"
-using My_Site.ViewsModel;
+#line 2 "C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\Views\_ViewImports.cshtml"
+using My_Site.Service;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f400a24e4f1c1f8dbc87c0f761266a45e781e06b", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"01ddf33adec6007703fee9dfb4b013e4ea491cfb", @"/Views/_ViewImports.cshtml")]
-    public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ObjectsModel>
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"27b4362acbd483370a406fee69f2396b0807b284", @"/Views/_ViewImports.cshtml")]
+    public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<GameModel>
     {
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
@@ -45,7 +45,7 @@ using My_Site.ViewsModel;
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<ObjectsModel> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<GameModel> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

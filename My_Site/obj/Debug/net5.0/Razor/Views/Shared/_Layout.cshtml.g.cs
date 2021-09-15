@@ -13,15 +13,15 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\Views\_ViewImports.cshtml"
-using My_Site.ViewsModel;
+#line 2 "C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\Views\_ViewImports.cshtml"
+using My_Site.Service;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8ed3c408a005a7bbc6a530b34914e692d4d4d3c5", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"01ddf33adec6007703fee9dfb4b013e4ea491cfb", @"/Views/_ViewImports.cshtml")]
-    public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ObjectsModel>
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"27b4362acbd483370a406fee69f2396b0807b284", @"/Views/_ViewImports.cshtml")]
+    public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<GameModel>
     {
         #line hidden
         #pragma warning disable 0649
@@ -49,7 +49,7 @@ using My_Site.ViewsModel;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<!DOCTYPE html>\n\n<html>\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ed3c408a005a7bbc6a530b34914e692d4d4d3c53083", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ed3c408a005a7bbc6a530b34914e692d4d4d3c53077", async() => {
                 WriteLiteral("\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>");
 #nullable restore
 #line 6 "C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\Views\Shared\_Layout.cshtml"
@@ -71,7 +71,7 @@ using My_Site.ViewsModel;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ed3c408a005a7bbc6a530b34914e692d4d4d3c54357", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ed3c408a005a7bbc6a530b34914e692d4d4d3c54351", async() => {
                 WriteLiteral("\n    <div>\n        ");
 #nullable restore
 #line 10 "C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\Views\Shared\_Layout.cshtml"
@@ -104,7 +104,7 @@ using My_Site.ViewsModel;
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<ObjectsModel> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<GameModel> Html { get; private set; }
     }
 }
 #pragma warning restore 1591

@@ -466,7 +466,6 @@ C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\scopedc
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Psychics.TagHelpers.input.cache
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Psychics.TagHelpers.output.cache
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\My_Site.RazorCoreGenerate.cache
-C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\Home\Site.cshtml.g.cs
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
@@ -478,3 +477,6 @@ C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Psychic
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\ref\Psychics.dll
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Psychics.pdb
 C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\My_Site.genruntimeconfig.cache
+C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\Home\ClickUser.cshtml.g.cs
+C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\Home\InputNamber.cshtml.g.cs
+C:\Users\user1\Documents\GitHub\psychics\mySite\My_Site\obj\Debug\net5.0\Razor\Views\Home\OutputTemplate.cshtml.g.cs
