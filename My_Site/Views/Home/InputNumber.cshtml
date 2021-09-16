@@ -1,0 +1,12 @@
+﻿<form asp-controller="Home" asp-action="UserReplied" method="post">
+    <div>
+         <h3>Предсказания экстрасенса №1: @Model.roundGames[^1].Psychic1 </h3>
+         <h3>Предсказания экстрасенса №2: @Model.roundGames[^1].Psychic2 </h3>
+    </div>
+    <div>
+        <input type="number" asp-for="UserInput">
+        <button type="submit">Отправить</button>
+    </div>
+</form>
+
+@await Html.PartialAsync("OutputTemplate");
