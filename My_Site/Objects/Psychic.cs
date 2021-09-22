@@ -1,16 +1,16 @@
-using My_Site.Objects;
+using Psychics.Objects;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace My_Site
+namespace Psychics
 {
     public class Psychic
     {
-        public int NumberGeneration()
+        public int NumberGeneration(int min, int max)
         {
             Random random = new Random();
-            return random.Next(10,99);
+            return random.Next(min,max);
         }
     }
 }

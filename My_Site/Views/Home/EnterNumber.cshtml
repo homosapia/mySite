@@ -1,0 +1,17 @@
+﻿<form asp-controller="Home" asp-action="UserReplied" method="post">
+    <div>
+        @{int i = 0;}
+        @foreach (int number in Model.CurrentRound().Psychics)
+        {
+            i++;
+            <h3>Предсказания экстрасенса №@i: @number </h3>
+        }
+    </div>
+    <div>
+        <input type="number" asp-for="UserInput" value="Ввод">
+        <button type="submit">Отправить</button>
+        <span asp-validation-for="UserInput"></span>
+    </div>
+</form>
+
+@await Html.PartialAsync("OutputTemplate")

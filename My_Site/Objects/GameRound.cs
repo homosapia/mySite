@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace My_Site.Objects
+namespace Psychics.Objects
 {
-    public class RoundGame 
+    public class GameRound 
     { 
         public int User { get; set; }
 
-        public int Psychic1 { get; set; } 
-        
-        public int Psychic2 { get; set; }
+        public List<int> Psychics { get; set; }
     }
 }

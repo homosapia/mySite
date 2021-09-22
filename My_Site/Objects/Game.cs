@@ -1,63 +1,81 @@
-﻿using My_Site.Objects;
-using System;
+﻿using Psychics.Objects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-namespace My_Site.Model
+namespace Psychics.Model
 {
     public class Game
     {
-        [JsonInclude]
-        public List<RoundGame> roundGames { get; private set; }
+        const int Min = 10;
+        const int Max = 99;
 
         [JsonInclude]
-        public int Trust1 { get; private set; }
+        public List<GameRound> GameRounds { get; private set; } = new();
 
         [JsonInclude]
-        public int Trust2 { get; private set; }
+        public List<int> PsychicTrusts { get; private set; } = new();
+
+        [JsonInclude]
+        public List<Psychic> Psychics { get; private set; } = new();
 
         public int UserInput { get; set; }
 
-        public Game()
+
+        public void NewRound()
         {
-            roundGames = new List<RoundGame>();
+            GameRound round = new GameRound();
+            GameRounds.Add(round);
         }
 
-        public void Сomparison()
+        public GameRound CurrentRound()
         {
-            if (roundGames[^1].Psychic1 == roundGames[^1].User)
-                Trust1++;
-            else
-                Trust1--;
-
-            if (roundGames[^1].Psychic2 == roundGames[^1].User)
-                Trust2++;
-            else
-                Trust2--;
+            return GameRounds.Last();
         }
 
-        public void AskPsychic()
+        public void AddPsychics(int amount)
         {
-            Psychic psychic = new();
-            RoundGame round = new();
 
-            round.Psychic1 = psychic.NumberGeneration();
-            round.Psychic2 = psychic.NumberGeneration();
-
-            roundGames.Add(round);
-        }
-
-        public bool RecordInput(int value)
-        {
-            if (value.ToString().Length == 2 && value > 0)
+            for (int i = 0; i < amount; i++)
             {
-                roundGames[^1].User = value;
-                return true;
+                Psychic psychic = new();
+                Psychics.Add(psychic);
+                PsychicTrusts.Add(0);
             }
+        }
 
+        public void CountTrustPsychic()
+        {
+            for(int i = 0; i < Psychics.Count; i++)
+            {
+                if (CurrentRound().Psychics[i] == CurrentRound().User)
+                    PsychicTrusts[i]++;
+                else
+                    PsychicTrusts[i]--;
+            }
+        }
+
+        public void AskNumberPsychics()
+        {
+            CurrentRound().Psychics = new List<int>();
+
+            for (int i = 0; i < Psychics.Count; i++)
+            {
+                CurrentRound().Psychics.Add(Psychics[i].NumberGeneration(Min, Max));
+            }
+        }
+
+        public bool СheckInput(int value)
+        {
+            if (value >= Min && value <= Max)
+                return true;
             return false;
         }
+
+        public void AddUserInputToRound(int value)
+        {
+            CurrentRound().User = value;
+        }
+
     }
 }

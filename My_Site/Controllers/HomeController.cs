@@ -5,35 +5,37 @@ using System.Diagnostics;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
-using My_Site.Scripts;
+using Psychics.Scripts;
 using System.Text.Json;
-using My_Site.Model;
+using Psychics.Model;
 
-namespace My_Site.Co
+namespace Psychics.Co
 {
     public class HomeController : Controller
     {
         public IActionResult Site()
         {
             Game model = new();
-            HttpContext.Session.SetSaveGame(model);
-            return View("~/Views/Home/ClickUser.cshtml", model);
+            model.AddPsychics(2);
+            HttpContext.Session.SaveGame(model);
+            return View("~/Views/Home/StartRound.cshtml", model);
         }
 
         [HttpPost]
-        public IActionResult UserGuess()
+        public IActionResult NewRound()
         {
-            Game model = HttpContext.Session.GetSaveGame();
+            Game model = HttpContext.Session.LoadGame();
 
-            model.AskPsychic();
+            model.NewRound();
+            model.AskNumberPsychics();
 
-            HttpContext.Session.SetSaveGame(model);
-            return RedirectToAction("InputNumber");
+            HttpContext.Session.SaveGame(model);
+            return RedirectToAction("EnterNumber");
         }
 
-        public IActionResult InputNumber()
+        public IActionResult EnterNumber()
         {
-            Game model = HttpContext.Session.GetSaveGame();
+            Game model = HttpContext.Session.LoadGame();
 
             return View(model);
         }
@@ -41,20 +43,24 @@ namespace My_Site.Co
         [HttpPost]
         public IActionResult UserReplied(Game postGame)
         {
-            Game model = HttpContext.Session.GetSaveGame();
+            Game model = HttpContext.Session.LoadGame();
 
-            if(!model.RecordInput(postGame.UserInput))
-                return View("~/Views/Home/InputNumber.cshtml", model);
+            if (!postGame.—heckInput(postGame.UserInput))
+            {
+                ModelState.AddModelError(nameof(postGame.UserInput), "ÕÂ ‚ÂÌ˚Â ‰‡ÌÌ˚Â");
+                return View("~/Views/Home/EnterNumber.cshtml", model);
+            }
 
-            model.—omparison();
+            model.AddUserInputToRound(postGame.UserInput);
+            model.CountTrustPsychic();
 
-            HttpContext.Session.SetSaveGame(model);
-            return RedirectToAction("ClickUser");
+            HttpContext.Session.SaveGame(model);
+            return RedirectToAction("StartRound");
         }
 
-        public IActionResult ClickUser()
+        public IActionResult StartRound()
         {
-            Game model = HttpContext.Session.GetSaveGame();
+            Game model = HttpContext.Session.LoadGame();
 
             return View(model);
         }

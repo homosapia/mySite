@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xWJ6HRkHFjJTap5WsPn6Y96gAmeg304js4oD/6hWwpLW2LHut5+oiwKCqu5a3gaYh9WDfXt2vE+CCmgNAkBJ2g==",
+  "dgSpecHash": "dzX3ciEBWJ0HK5oKW9ReX3AkkiT3QJKHZGtfWLYepRuobyeuYohkZm40rKEoQO2Pl2cD/orARrS2UJRnWYHWrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\My_Site.csproj",
+  "projectFilePath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\Psychics.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",

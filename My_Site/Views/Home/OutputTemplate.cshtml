@@ -1,28 +1,37 @@
 ﻿<div>
-    <h3>Доверие к экстрасенсу №1: @Model.Trust1 </h3>
-    <h3>Доверие к экстрасенсу №2: @Model.Trust2</h3>
+    @{int i = 0;}
+    @foreach (var trust in Model.PsychicTrusts)
+    {
+        i++;
+        <h3>Доверие к экстрасенсу №@i: @trust </h3>
+    }
 </div>
 
 <table>
-    <tr><th><h3> Введенные значения </h3></th><th><h3> Предсказания экстрасенсa №1 </h3></th><th><h3> Предсказания экстрасенсa №2 </h3></th></tr>
     <tr>
         <th>
-            @foreach (var i in Model.roundGames)
-            {
-                <h4> @i.User </h4>
-                }
+           <h3> Введенные значения </h3>
         </th>
-        <th>
-            @foreach (var i in Model.roundGames)
-            {
-                <h4> @i.Psychic1 </h4>
-                }
-        </th>
-        <th>
-            @foreach (var i in Model.roundGames)
-            {
-                <h4> @i.Psychic2 </h4>
-            }
-        </th>
+        @{i = 0;}
+        @while(i < Model.Psychics.Count)
+        {
+            i++;
+            <th><h3> Предсказания экстрасенсa №@i </h3></th>
+        }
     </tr>
+
+    @foreach (var round in Model.GameRounds)
+    {
+        <tr>
+            <th>
+                @round.User
+            </th>
+            @foreach (var number in round.Psychics)
+            {
+                <th>
+                    @number
+                </th>
+            }
+        </tr>
+    }
 </table>

@@ -6710,9 +6710,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\My_Site.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\Psychics.csproj",
       "projectName": "Psychics",
-      "projectPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\My_Site.csproj",
+      "projectPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\Psychics.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\obj\\",
       "projectStyle": "PackageReference",
