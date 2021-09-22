@@ -1,12 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Diagnostics;
-using System;
-using System.Threading.Tasks;
-using System.Linq;
 using Psychics.Scripts;
-using System.Text.Json;
 using Psychics.Model;
 
 namespace Psychics.Co

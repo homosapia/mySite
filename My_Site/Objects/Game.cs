@@ -21,7 +21,6 @@ namespace Psychics.Model
 
         public int UserInput { get; set; }
 
-
         public void NewRound()
         {
             GameRound round = new GameRound();
