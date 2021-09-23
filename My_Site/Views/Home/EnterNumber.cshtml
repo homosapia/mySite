@@ -1,0 +1,15 @@
+﻿<form asp-controller="Home" asp-action="EndRound" method="post">
+    <div>
+        @for (int i = 0; i < Model.GetCurrentRound().PredictionsPsychics.Count; i++)
+        {
+            <h3>Предсказания экстрасенса №@(i+1): @Model.GetCurrentRound().PredictionsPsychics[i] </h3>
+        }
+    </div>
+    <div>
+        <input id="input_User" min="2" type="number" asp-for="UserInput">
+        <button onclick="ValidationCheck()" type="submit">Отправить</button>
+        <span asp-validation-for="UserInput"></span>
+    </div>
+</form>
+
+@await Html.PartialAsync("OutputTemplate")
