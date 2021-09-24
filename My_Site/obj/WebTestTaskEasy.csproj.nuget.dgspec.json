@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fnbxk\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj": {}
+    "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fnbxk\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj": {
+    "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fnbxk\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
         "projectName": "WebTestTaskEasy",
-        "projectPath": "C:\\Users\\fnbxk\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
-        "packagesPath": "C:\\Users\\fnbxk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fnbxk\\Desktop\\mySite-main\\My_Site\\obj\\",
+        "projectPath": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
+        "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fnbxk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,10 +40,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.StaticFiles": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
@@ -71,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

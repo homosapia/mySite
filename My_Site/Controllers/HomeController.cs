@@ -3,15 +3,25 @@ using Microsoft.AspNetCore.Mvc;
 using WebTestTaskEasy.Scripts;
 using WebTestTaskEasy.Model;
 using WebTestTaskEasy.Objects;
+using WebTestTaskEasy.Interface;
+using Microsoft.Extensions.DependencyInjection;
+using WebTestTaskEasy.Service;
 
 namespace WebTestTaskEasy.Co
 {
     public class HomeController : Controller
     {
+        IReferee referee;
+
+        public HomeController(IReferee referee)
+        {
+            this.referee = referee;
+        }
+
         public IActionResult GameActivation()
         {
             Game model = new();
-            model.AddPsychics(2);
+
             HttpContext.Session.SaveGame(model);
             return View("~/Views/Home/StartRound.cshtml", model);
         }
@@ -21,8 +31,7 @@ namespace WebTestTaskEasy.Co
         {
             Game model = HttpContext.Session.LoadGame();
 
-            model.NewRound();
-            model.AskNumberPsychics();
+            model.PredictionsPsychics();
 
             HttpContext.Session.SaveGame(model);
             return RedirectToAction("EnterNumber");
@@ -36,18 +45,11 @@ namespace WebTestTaskEasy.Co
         }
 
         [HttpPost]
-        public IActionResult EndRound(Game postGame)
+        public IActionResult EndRound(int number)
         {
             Game model = HttpContext.Session.LoadGame();
 
-            if (!postGame.—heckInput(postGame.UserInput))
-            {
-                ModelState.AddModelError(nameof(postGame.UserInput), "ÕÂ ‚ÂÌ˚Â ‰‡ÌÌ˚Â");
-                return View("~/Views/Home/EnterNumber.cshtml", model);
-            }
-
-            model.AddUserInputToRound(postGame.UserInput);
-            model.CountTrustPsychic();
+            model.FinishRound(number);
 
             HttpContext.Session.SaveGame(model);
             return RedirectToAction("StartRound");

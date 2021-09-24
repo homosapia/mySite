@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebTestTaskEasy.Interface;
+using WebTestTaskEasy.Objects;
 
 namespace WebTestTaskEasy
 {
@@ -15,6 +17,7 @@ namespace WebTestTaskEasy
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IReferee, Referee>();
             services.AddDistributedMemoryCache();
             services.AddSession();
             services.AddMvc();

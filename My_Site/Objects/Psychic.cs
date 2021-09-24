@@ -7,10 +7,12 @@ namespace WebTestTaskEasy
 {
     public class Psychic
     {
-        public int GetNumber(int min, int max)
+        private const int Min = 10;
+        private const int Max = 99;
+        public int GetNumber()
         {
             Random random = new Random();
-            return random.Next(min,max);
+            return random.Next(Min, Max);
         }
     }
 }

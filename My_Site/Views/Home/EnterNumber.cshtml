@@ -1,14 +1,13 @@
 ﻿<form asp-controller="Home" asp-action="EndRound" method="post">
     <div>
-        @for (int i = 0; i < Model.GetCurrentRound().PredictionsPsychics.Count; i++)
+        @for (int i = 0; i < Model.GetСurrentRound().PredictionsPsychics.Count; i++)
         {
-            <h3>Предсказания экстрасенса №@(i+1): @Model.GetCurrentRound().PredictionsPsychics[i] </h3>
+            <h3>Предсказания экстрасенса №@(i+1): @Model.GetСurrentRound().PredictionsPsychics[i] </h3>
         }
     </div>
     <div>
-        <input id="input_User" min="2" type="number" asp-for="UserInput">
+        <input min="10" max="99" type="number" name="number" placeholder="ввод">
         <button onclick="ValidationCheck()" type="submit">Отправить</button>
-        <span asp-validation-for="UserInput"></span>
     </div>
 </form>
 

@@ -5,20 +5,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
+using WebTestTaskEasy.Objects;
+using WebTestTaskEasy.Service;
 
 namespace WebTestTaskEasy.Scripts
 {
     public static class SessionExtensions
     {
-        public static void SaveGame(this ISession session, Game value)
+        private static FactoryGame factoryGame = new();
+        public static void SaveGame(this ISession session, Game game)
         {
-            session.SetString("Game", JsonSerializer.Serialize<Game>(value));
+            session.SetString("GameData", JsonSerializer.Serialize<GameData>(factoryGame.GetGameData(game)));
         }
 
         public static Game LoadGame(this ISession session)
         {
-            var value = session.GetString("Game");
-            return value == null ? default : JsonSerializer.Deserialize<Game>(value);
+            string stringData = session.GetString("GameData");
+            return factoryGame.GetGame(stringData == null ? default : JsonSerializer.Deserialize<GameData>(stringData));
         }
     }
 }
