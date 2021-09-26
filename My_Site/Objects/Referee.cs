@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebTestTaskEasy.Interface;
-using WebTestTaskEasy.Model;
 
 namespace WebTestTaskEasy.Objects
 {
     public class Referee : IReferee
     {
-        private const int percent = 100;
         public List<int> CountPsychicTrust(List<GameRound> rounds, int PsychicsCount)
         {
             List<int> TrustsPsychic = new();

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebTestTaskEasy.Scripts;
-using WebTestTaskEasy.Model;
 using WebTestTaskEasy.Objects;
 using WebTestTaskEasy.Interface;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,19 +10,17 @@ namespace WebTestTaskEasy.Co
 {
     public class HomeController : Controller
     {
-        IReferee referee;
+        Game game;
 
-        public HomeController(IReferee referee)
+        public HomeController(Game _game)
         {
-            this.referee = referee;
+            game = _game;
         }
 
         public IActionResult GameActivation()
         {
-            Game model = new();
-
-            HttpContext.Session.SaveGame(model);
-            return View("~/Views/Home/StartRound.cshtml", model);
+            HttpContext.Session.SaveGame(game);
+            return View("~/Views/Home/StartRound.cshtml", game);
         }
 
         [HttpPost]
@@ -40,6 +37,7 @@ namespace WebTestTaskEasy.Co
         public IActionResult EnterNumber()
         {
             Game model = HttpContext.Session.LoadGame();
+            model._referee = game._referee;
 
             return View(model);
         }
@@ -47,7 +45,7 @@ namespace WebTestTaskEasy.Co
         [HttpPost]
         public IActionResult EndRound(int number)
         {
-            Game model = HttpContext.Session.LoadGame();
+            Game model  = HttpContext.Session.LoadGame();
 
             model.FinishRound(number);
 
@@ -58,6 +56,7 @@ namespace WebTestTaskEasy.Co
         public IActionResult StartRound()
         {
             Game model = HttpContext.Session.LoadGame();
+            model._referee = game._referee;
 
             return View(model);
         }

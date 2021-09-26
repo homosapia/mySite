@@ -6,8 +6,9 @@ using WebTestTaskEasy.Objects;
 
 namespace WebTestTaskEasy.Interface
 {
-    public interface IReferee
+    public interface IFactoryGame
     {
-        public List<int> CountPsychicTrust(List<GameRound> rounds, int PsychicsCount);
+        public Game GetGame(GameData gameData);
+        public GameData GetGameData(Game game);
     }
 }

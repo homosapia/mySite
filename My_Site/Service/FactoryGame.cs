@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebTestTaskEasy.Model;
+using WebTestTaskEasy.Interface;
 using WebTestTaskEasy.Objects;
 
 namespace WebTestTaskEasy.Service
 {
-    public class FactoryGame
+    public class FactoryGame : IFactoryGame
     {
         public Game GetGame(GameData gameData)
         {

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using WebTestTaskEasy.Interface;
 
-namespace WebTestTaskEasy.Model
+namespace WebTestTaskEasy.Objects
 {
     public class Game
     {
         private const int PsychicsCount = 2;
 
-        private IReferee referee = new Referee();
+        public IReferee _referee;
 
         private GameRound CurrentGameRound = new();
 
@@ -18,8 +18,9 @@ namespace WebTestTaskEasy.Model
 
         private List<Psychic> Psychics = new();
 
-        public Game()
+        public Game(IReferee referee)
         {
+            _referee = referee;
             for (int i = 0; i < PsychicsCount; i++)
             {
                 Psychic psychic = new();
@@ -46,7 +47,7 @@ namespace WebTestTaskEasy.Model
         }
         public List<int> GetPsychicTrusts()
         {
-            return referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
+            return _referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
         }
         public List<Psychic> GetPsychics()
         {
