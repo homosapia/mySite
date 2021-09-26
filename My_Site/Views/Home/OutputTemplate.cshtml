@@ -10,13 +10,13 @@
         <th>
            <h3> Введенные значения </h3>
         </th>
-        @for(int i = 0; i < Model.GetPsychics().Count; i++)
+        @for(int i = 0; i < Model.GetGameData().Psychics.Count; i++)
         {
             <th><h3> Предсказания экстрасенсa №@(i+1) </h3></th>
         }
     </tr>
 
-    @foreach (var round in Model.GetСompletedRounds())
+    @foreach (var round in Model.GetGameData().GameRoundsHistory)
     {
         <tr>
             <th>

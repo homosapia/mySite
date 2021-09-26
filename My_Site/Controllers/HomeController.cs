@@ -4,7 +4,6 @@ using WebTestTaskEasy.Scripts;
 using WebTestTaskEasy.Objects;
 using WebTestTaskEasy.Interface;
 using Microsoft.Extensions.DependencyInjection;
-using WebTestTaskEasy.Service;
 
 namespace WebTestTaskEasy.Co
 {

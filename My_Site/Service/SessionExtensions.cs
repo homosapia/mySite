@@ -6,23 +6,20 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using WebTestTaskEasy.Interface;
 using WebTestTaskEasy.Objects;
-using WebTestTaskEasy.Service;
 
 namespace WebTestTaskEasy.Scripts
 {
     public static class SessionExtensions
     {
-        private static IFactoryGame factoryGame = new FactoryGame();
         public static void SaveGame(this ISession session,  Game game)
         {
-            session.SetString("GameData", JsonSerializer.Serialize<GameData>(factoryGame.GetGameData(game)));
+            session.SetString("GameData", JsonSerializer.Serialize<GameData>(game.GetGameData()));
         }
 
         public static Game LoadGame(this ISession session)
         {
             string stringData = session.GetString("GameData");
-            GameData data  = JsonSerializer.Deserialize<GameData>(stringData);
-            return factoryGame.GetGame(data);
+            return new Game(JsonSerializer.Deserialize<GameData>(stringData));
         }
     }
 }

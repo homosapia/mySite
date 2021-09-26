@@ -17,12 +17,5 @@ namespace WebTestTaskEasy.Objects
 
         [JsonInclude]
         public List<Psychic> Psychics = new();
-
-        public void SetGameData(Game game)
-        {
-            CurrentGameRound = game.GetСurrentRound();
-            GameRoundsHistory = game.GetСompletedRounds();
-            Psychics = game.GetPsychics();
-        }
     }
 }

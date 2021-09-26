@@ -37,21 +37,18 @@ namespace WebTestTaskEasy.Objects
             Psychics = gameData.Psychics.ToList();
         }
 
-        public GameRound GetСurrentRound()
+        public GameData GetGameData()
         {
-            return CurrentGameRound;
-        } 
-        public List<GameRound> GetСompletedRounds()
-        {
-            return GameRoundsHistory.ToList();
+            GameData gameData = new();
+            gameData.CurrentGameRound = CurrentGameRound;
+            gameData.Psychics = Psychics.ToList();
+            gameData.GameRoundsHistory = GameRoundsHistory.ToList();
+            return gameData;
         }
+
         public List<int> GetPsychicTrusts()
         {
             return _referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
-        }
-        public List<Psychic> GetPsychics()
-        {
-            return Psychics.ToList();
         }
 
         public void FinishRound(int value)
