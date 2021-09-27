@@ -9,7 +9,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebTestTaskEasy.Interface;
 using WebTestTaskEasy.Objects;
-using WebTestTaskEasy.Service;
 
 namespace WebTestTaskEasy
 {
@@ -19,7 +18,6 @@ namespace WebTestTaskEasy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IReferee, Referee>();
-            services.AddTransient<IFactoryGame, FactoryGame>();
             services.AddTransient<Game>();
             services.AddDistributedMemoryCache();
             services.AddSession();
