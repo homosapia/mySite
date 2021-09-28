@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LcXi9V6VKsvEdwfctvCSvNFgeHUIe976Xh9uB+1dhqNU1GB2HAWgILKCpxn68G4SCnbHk6tV5g7ttb5H1gm2RA==",
+  "dgSpecHash": "GnM2JXmSYvMsIpgKRnEYYse94KuTVHlQGBuZ048LcnCDM0cwwGuewaY1WhbpRXEtlIJu1fTTlpT86FbvWUXIJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
+  "projectFilePath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\WebTestTaskEasy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user1\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
