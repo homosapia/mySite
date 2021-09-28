@@ -9,55 +9,50 @@ namespace WebTestTaskEasy.Co
 {
     public class HomeController : Controller
     {
-        Game game;
-
-        public HomeController(Game _game)
+        readonly IGameFactory gameFactory;
+        readonly IGameStorage gameStorage;
+        public HomeController(IGameFactory gameFactory, IGameStorage gameStorage)
         {
-            game = _game;
+            this.gameFactory = gameFactory;
+            this.gameStorage = gameStorage;
         }
 
         public IActionResult GameActivation()
         {
-            HttpContext.Session.SaveGame(game);
+            Game game = gameFactory.Create();
+            gameStorage.SetGame(game);
             return View("~/Views/Home/StartRound.cshtml", game);
         }
 
         [HttpPost]
         public IActionResult NewRound()
         {
-            Game model = HttpContext.Session.LoadGame();
+            Game game = gameFactory.Create();
+            game.PredictionsPsychics();
 
-            model.PredictionsPsychics();
-
-            HttpContext.Session.SaveGame(model);
+            gameStorage.SetGame(game);
             return RedirectToAction("EnterNumber");
         }
 
         public IActionResult EnterNumber()
         {
-            Game model = HttpContext.Session.LoadGame();
-            model._referee = game._referee;
-
-            return View(model);
+            return View(gameFactory.Create());
         }
 
         [HttpPost]
         public IActionResult EndRound(int number)
         {
-            Game model  = HttpContext.Session.LoadGame();
+            Game game = gameFactory.Create();
 
-            model.FinishRound(number);
+            game.FinishRound(number);
 
-            HttpContext.Session.SaveGame(model);
+            gameStorage.SetGame(game);
             return RedirectToAction("StartRound");
         }
 
         public IActionResult StartRound()
         {
-            Game model = HttpContext.Session.LoadGame();
-            model._referee = game._referee;
-
-            return View(model);
+            return View(gameFactory.Create());
         }
     }
 }

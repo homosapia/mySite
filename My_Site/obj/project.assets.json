@@ -6237,11 +6237,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\WebTestTaskEasy.csproj",
+      "projectUniqueName": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
       "projectName": "WebTestTaskEasy",
-      "projectPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\WebTestTaskEasy.csproj",
+      "projectPath": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\WebTestTaskEasy.csproj",
       "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user1\\Documents\\GitHub\\psychics\\mySite\\My_Site\\obj\\",
+      "outputPath": "C:\\Users\\user1\\Desktop\\mySite-main\\My_Site\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user1\\AppData\\Roaming\\NuGet\\NuGet.Config",

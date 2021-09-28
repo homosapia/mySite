@@ -10,7 +10,7 @@ namespace WebTestTaskEasy.Objects
     {
         private const int PsychicsCount = 2;
 
-        public IReferee _referee;
+        private IReferee referee;
 
         private GameRound CurrentGameRound = new();
 
@@ -18,9 +18,9 @@ namespace WebTestTaskEasy.Objects
 
         private List<Psychic> Psychics = new();
 
-        public Game(IReferee referee)
+        public Game(IReferee _referee)
         {
-            _referee = referee;
+            referee = _referee;
             for (int i = 0; i < PsychicsCount; i++)
             {
                 Psychic psychic = new();
@@ -30,6 +30,17 @@ namespace WebTestTaskEasy.Objects
 
         public Game(GameData gameData)
         {
+            CurrentGameRound = gameData.CurrentGameRound;
+
+            GameRoundsHistory = gameData.GameRoundsHistory.ToList();
+
+            Psychics = gameData.Psychics.ToList();
+        }
+
+        public Game(IReferee referee, GameData gameData)
+        {
+            this.referee = referee;
+
             CurrentGameRound = gameData.CurrentGameRound;
 
             GameRoundsHistory = gameData.GameRoundsHistory.ToList();
@@ -48,7 +59,7 @@ namespace WebTestTaskEasy.Objects
 
         public List<int> GetPsychicTrusts()
         {
-            return _referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
+            return referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
         }
 
         public void FinishRound(int value)

@@ -11,15 +11,17 @@ namespace WebTestTaskEasy.Scripts
 {
     public static class SessionExtensions
     {
-        public static void SaveGame(this ISession session,  Game game)
+        public static bool SessionActive = false;
+        public static void SaveGame(this ISession session,  GameData data)
         {
-            session.SetString("GameData", JsonSerializer.Serialize<GameData>(game.GetGameData()));
+            session.SetString("GameData", JsonSerializer.Serialize<GameData>(data));
+            SessionActive = true;
         }
 
-        public static Game LoadGame(this ISession session)
+        public static GameData LoadGame(this ISession session)
         {
             string stringData = session.GetString("GameData");
-            return new Game(JsonSerializer.Deserialize<GameData>(stringData));
+            return JsonSerializer.Deserialize<GameData>(stringData);
         }
     }
 }
