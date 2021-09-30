@@ -27,12 +27,17 @@ namespace WebTestTaskEasy.Service
 
         public Game GetGame()
         {
-            return new Game(referee, gameStorage.GetGameData());
+            return new Game(referee, gameStorage.LoadGameData());
         }
 
         public void SetGame(Game game)
         {
-            gameStorage.
+            gameStorage.SaveGame(game);
+        }
+
+        public bool SessionExists()
+        {
+            return gameStorage.SessionExists();
         }
     }
 }

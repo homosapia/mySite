@@ -20,7 +20,7 @@ namespace WebTestTaskEasy.Service
 
         public GameData LoadGameData()
         {
-            return httpContextAccessor.HttpContext.Session.LoadGame();
+            return httpContextAccessor.HttpContext.Session.LoadData();
         }
 
         public void SaveGame(Game game)

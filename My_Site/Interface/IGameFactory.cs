@@ -9,5 +9,11 @@ namespace WebTestTaskEasy.Interface
     public interface IGameFactory
     {
         public Game NewGame();
+
+        public Game GetGame();
+
+        public void SetGame(Game game);
+
+        public bool SessionExists();
     }
 }
