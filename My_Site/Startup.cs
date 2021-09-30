@@ -19,7 +19,7 @@ namespace WebTestTaskEasy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IReferee, Referee>();
-            services.AddTransient<IGameFactory, GameFactory>();
+            services.AddTransient<IManagerGame, ManagerGame>();
             services.AddTransient<IGameStorage, GameStorage>();
             services.AddDistributedMemoryCache();
             services.AddHttpContextAccessor();

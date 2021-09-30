@@ -6,7 +6,7 @@ using WebTestTaskEasy.Objects;
 
 namespace WebTestTaskEasy.Interface
 {
-    public interface IGameFactory
+    public interface IManagerGame
     {
         public Game NewGame();
 

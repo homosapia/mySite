@@ -9,12 +9,12 @@ using WebTestTaskEasy.Scripts;
 
 namespace WebTestTaskEasy.Service
 {
-    public class GameFactory : IGameFactory
+    public class ManagerGame : IManagerGame
     {
         private IReferee referee;
         private IGameStorage gameStorage;
 
-        public GameFactory(IReferee referee, IGameStorage gameStorage)
+        public ManagerGame(IReferee referee, IGameStorage gameStorage)
         {
             this.gameStorage = gameStorage;
             this.referee = referee;

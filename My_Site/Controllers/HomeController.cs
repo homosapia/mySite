@@ -9,8 +9,8 @@ namespace WebTestTaskEasy.Co
 {
     public class HomeController : Controller
     {
-        readonly IGameFactory gameFactory;
-        public HomeController(IGameFactory gameFactory)
+        readonly IManagerGame gameFactory;
+        public HomeController(IManagerGame gameFactory)
         {
             this.gameFactory = gameFactory;
         }
@@ -18,7 +18,7 @@ namespace WebTestTaskEasy.Co
         public IActionResult ActivationGame()
         {
             Game game;
-            if (gameFactory.SessionExists())
+            if (!gameFactory.SessionExists())
                 game = gameFactory.GetGame();
             else
                 game = gameFactory.NewGame();
