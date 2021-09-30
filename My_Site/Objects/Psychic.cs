@@ -7,9 +7,7 @@ namespace WebTestTaskEasy.Objects
 {
     public class Psychic
     {
-        private const int Min = 10;
-        private const int Max = 99;
-        public int GetNumber()
+        public int GetNumber(int Min, int Max)
         {
             Random random = new Random();
             return random.Next(Min, Max);

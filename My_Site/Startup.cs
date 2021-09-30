@@ -46,7 +46,7 @@ namespace WebTestTaskEasy
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=GameActivation}/{id?}");
+                    pattern: "{controller=Home}/{action=ActivationGame}");
             });
         }
     }

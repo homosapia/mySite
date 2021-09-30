@@ -18,10 +18,15 @@ namespace WebTestTaskEasy.Scripts
             SessionActive = true;
         }
 
-        public static GameData LoadGame(this ISession session)
+        public static GameData LoadData(this ISession session)
         {
             string stringData = session.GetString("GameData");
             return JsonSerializer.Deserialize<GameData>(stringData);
+        }
+
+        public static bool SessionData(this ISession session)
+        {
+            return string.IsNullOrEmpty(session.GetString("GameData"));
         }
     }
 }

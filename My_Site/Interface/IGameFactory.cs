@@ -8,6 +8,6 @@ namespace WebTestTaskEasy.Interface
 {
     public interface IGameFactory
     {
-        public Game Create();
+        public Game NewGame();
     }
 }

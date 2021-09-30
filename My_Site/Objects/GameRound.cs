@@ -7,7 +7,7 @@ namespace WebTestTaskEasy.Objects
 {
     public class GameRound 
     { 
-        public int NumberUser { get; set; }
+        public int UserNumber { get; set; }
 
         public List<int> PredictionsPsychics { get; set; } = new();
     }

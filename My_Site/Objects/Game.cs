@@ -8,11 +8,14 @@ namespace WebTestTaskEasy.Objects
 {
     public class Game
     {
-        private const int PsychicsCount = 2;
+        public const int Min = 10;
+        public const int Max = 99;
+
+        private const int CauntPsychics = 2;
 
         private IReferee referee;
 
-        private GameRound CurrentGameRound = new();
+        private GameRound CurrentGameRound;
 
         private List<GameRound> GameRoundsHistory = new();
 
@@ -21,21 +24,9 @@ namespace WebTestTaskEasy.Objects
         public Game(IReferee _referee)
         {
             referee = _referee;
-            for (int i = 0; i < PsychicsCount; i++)
-            {
-                Psychic psychic = new();
-                Psychics.Add(psychic);
-            }
+            InitPsychics();
         }
 
-        public Game(GameData gameData)
-        {
-            CurrentGameRound = gameData.CurrentGameRound;
-
-            GameRoundsHistory = gameData.GameRoundsHistory.ToList();
-
-            Psychics = gameData.Psychics.ToList();
-        }
 
         public Game(IReferee referee, GameData gameData)
         {
@@ -57,6 +48,20 @@ namespace WebTestTaskEasy.Objects
             return gameData;
         }
 
+        public void СreateNewRound()
+        {
+            CurrentGameRound = new();
+        }
+
+        private void InitPsychics()
+        {
+            for (int i = 0; i < CauntPsychics; i++)
+            {
+                Psychic psychic = new();
+                Psychics.Add(psychic);
+            }
+        }
+
         public List<int> GetPsychicTrusts()
         {
             return referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
@@ -64,23 +69,18 @@ namespace WebTestTaskEasy.Objects
 
         public void FinishRound(int value)
         {
-            AddUserInputToRound(value);
-            GameRoundsHistory.Add(CurrentGameRound);
-            IReferee referee = new Referee();
+            CurrentGameRound.UserNumber = value;
 
+            if (!GameRoundsHistory.Contains(CurrentGameRound))
+                GameRoundsHistory.Add(CurrentGameRound);
         }
 
-        private void AddUserInputToRound(int value)
-        {
-            CurrentGameRound.NumberUser = value;
-        }
-
-        public void PredictionsPsychics()
+        public void AskPsychics()
         {
             CurrentGameRound.PredictionsPsychics.Clear();
             for (int i = 0; i < Psychics.Count; i++)
             {
-                CurrentGameRound.PredictionsPsychics.Add(Psychics[i].GetNumber());
+                CurrentGameRound.PredictionsPsychics.Add(Psychics[i].GetNumber(Min, Max));
             }
         }
     }

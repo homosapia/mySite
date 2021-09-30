@@ -17,9 +17,9 @@ namespace WebTestTaskEasy.Co
             this.gameStorage = gameStorage;
         }
 
-        public IActionResult GameActivation()
+        public IActionResult ActivationGame()
         {
-            Game game = gameFactory.Create();
+            Game game = gameFactory.NewGame();
             gameStorage.SetGame(game);
             return View("~/Views/Home/StartRound.cshtml", game);
         }
@@ -27,8 +27,9 @@ namespace WebTestTaskEasy.Co
         [HttpPost]
         public IActionResult NewRound()
         {
-            Game game = gameFactory.Create();
-            game.PredictionsPsychics();
+            Game game = gameFactory.NewGame();
+            game.ÑreateNewRound();
+            game.AskPsychics();
 
             gameStorage.SetGame(game);
             return RedirectToAction("EnterNumber");
@@ -36,14 +37,18 @@ namespace WebTestTaskEasy.Co
 
         public IActionResult EnterNumber()
         {
-            return View(gameFactory.Create());
+            return View(gameFactory.NewGame());
         }
 
         [HttpPost]
         public IActionResult EndRound(int number)
         {
-            Game game = gameFactory.Create();
+            if (number < Game.Min || number > Game.Max)
+            {
+                return RedirectToAction("EnterNumber");
+            }
 
+            Game game = gameFactory.NewGame();
             game.FinishRound(number);
 
             gameStorage.SetGame(game);
@@ -52,7 +57,7 @@ namespace WebTestTaskEasy.Co
 
         public IActionResult StartRound()
         {
-            return View(gameFactory.Create());
+            return View(gameFactory.NewGame());
         }
     }
 }

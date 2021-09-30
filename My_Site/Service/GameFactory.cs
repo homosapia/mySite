@@ -20,12 +20,19 @@ namespace WebTestTaskEasy.Service
             this.referee = referee;
         }
 
-        public Game Create()
+        public Game NewGame()
         {
-            if (gameStorage.SessionActive())
-                return new Game(referee, gameStorage.GetGameData());
-
             return new Game(referee);
+        }
+
+        public Game GetGame()
+        {
+            return new Game(referee, gameStorage.GetGameData());
+        }
+
+        public void SetGame(Game game)
+        {
+            gameStorage.
         }
     }
 }

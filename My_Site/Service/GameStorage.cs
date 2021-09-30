@@ -18,19 +18,19 @@ namespace WebTestTaskEasy.Service
             this.httpContextAccessor = httpContextAccessor;
         }
 
-        public GameData GetGameData()
+        public GameData LoadGameData()
         {
             return httpContextAccessor.HttpContext.Session.LoadGame();
         }
 
-        public void SetGame(Game game)
+        public void SaveGame(Game game)
         {
             httpContextAccessor.HttpContext.Session.SaveGame(game.GetGameData());
         }
 
-        public bool SessionActive()
+        public bool SessionExists()
         {
-            return Scripts.SessionExtensions.SessionActive;
+            return httpContextAccessor.HttpContext.Session.SessionData();
         }
     }
 }

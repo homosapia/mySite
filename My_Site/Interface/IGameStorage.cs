@@ -8,10 +8,10 @@ namespace WebTestTaskEasy.Interface
 {
     public interface IGameStorage
     {
-        public GameData GetGameData();
+        public GameData LoadGameData();
 
-        public void SetGame(Game game);
+        public void SaveGame(Game game);
 
-        bool SessionActive();
+        bool SessionExists();
     }
 }
