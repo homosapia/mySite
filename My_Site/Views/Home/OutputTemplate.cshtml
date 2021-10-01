@@ -1,0 +1,33 @@
+﻿<div>
+    @for(int l = 0; l < Model.GetPsychicTrusts().Count; l++)
+    {
+        <h3>Доверие к экстрасенсу №@(l+1): @Model.GetPsychicTrusts()[l] </h3>
+    }
+</div>
+
+<table>
+    <tr>
+        <th>
+           <h3> Введенные значения </h3>
+        </th>
+        @for(int i = 0; i < Model.GetGameData().Psychics.Count; i++)
+        {
+            <th><h3> Предсказания экстрасенсa №@(i+1) </h3></th>
+        }
+    </tr>
+
+    @foreach (var round in Model.GetGameData().GameRoundsHistory)
+    {
+        <tr>
+            <th>
+                @round.UserNumber
+            </th>
+            @foreach (var number in round.PredictionsPsychics)
+            {
+                <th>
+                    @number
+                </th>
+            }
+        </tr>
+    }
+</table>
