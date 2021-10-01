@@ -9,38 +9,38 @@ namespace WebTestTaskEasy.Co
 {
     public class HomeController : Controller
     {
-        readonly IGameManager GameManager;
-        public HomeController(IGameManager Manager)
+        private IGameManager gameManager;
+        public HomeController(IGameManager manager)
         {
-            GameManager = Manager;
+            gameManager = manager;
         }
 
         public IActionResult ActivationGame()
         {
             Game game;
-            if (!GameManager.ThereIsGame())
-                game = GameManager.GetGame();
+            if (!gameManager.ThereIsGame())
+                game = gameManager.GetGame();
             else
-                game = GameManager.NewGame();
+                game = gameManager.NewGame();
 
-            GameManager.SetGame(game);
+            gameManager.SetGame(game);
             return View("~/Views/Home/StartRound.cshtml", game);
         }
 
         [HttpPost]
         public IActionResult NewRound()
         {
-            Game game = GameManager.GetGame();
+            Game game = gameManager.GetGame();
             game.NewRound();
             game.AskPsychics();
 
-            GameManager.SetGame(game);
+            gameManager.SetGame(game);
             return RedirectToAction("EnterNumber");
         }
 
         public IActionResult EnterNumber()
         {
-            return View(GameManager.GetGame());
+            return View(gameManager.GetGame());
         }
 
         [HttpPost]
@@ -51,10 +51,10 @@ namespace WebTestTaskEasy.Co
                 return RedirectToAction("EnterNumber");
             }
 
-            Game game = GameManager.GetGame();
+            Game game = gameManager.GetGame();
             game.FinishRound(number);
 
-            GameManager.SetGame(game);
+            gameManager.SetGame(game);
             return RedirectToAction("StartRound");
         }
 
@@ -65,7 +65,7 @@ namespace WebTestTaskEasy.Co
 
         public IActionResult StartRound()
         {
-            return View(GameManager.GetGame());
+            return View(gameManager.GetGame());
         }
     }
 }

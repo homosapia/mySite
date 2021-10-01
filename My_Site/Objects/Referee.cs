@@ -8,11 +8,11 @@ namespace WebTestTaskEasy.Objects
 {
     public class Referee : IReferee
     {
-        public List<int> CountPsychicTrust(List<GameRound> rounds, int PsychicsCount)
+        public List<int> CountPsychicTrust(List<GameRound> rounds, int psychicsCount)
         {
             List<int> TrustsPsychic = new();
   
-            for (int p = 0; p < PsychicsCount; p++)
+            for (int p = 0; p < psychicsCount; p++)
             {
                 int trusts = 0;
                 for (int r = 0; r < rounds.Count; r++)

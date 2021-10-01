@@ -11,33 +11,33 @@ namespace WebTestTaskEasy.Service
 {
     public class GameManager : IGameManager
     {
-        private IReferee Referee;
-        private IGameStorage GameStorage;
+        private IReferee referee;
+        private IGameStorage gameStorage;
 
         public GameManager(IReferee referee, IGameStorage gameStorage)
         {
-            GameStorage = gameStorage;
-            Referee = referee;
+            this.gameStorage = gameStorage;
+            this.referee = referee;
         }
 
         public Game NewGame()
         {
-            return new Game(Referee);
+            return new Game(referee);
         }
 
         public Game GetGame()
         {
-            return new Game(Referee, GameStorage.LoadGameData());
+            return new Game(referee, gameStorage.LoadGameData());
         }
 
         public void SetGame(Game game)
         {
-            GameStorage.SaveGame(game);
+            gameStorage.SaveGame(game);
         }
 
         public bool ThereIsGame()
         {
-            return GameStorage.ThereIsGame();
+            return gameStorage.ThereIsGame();
         }
     }
 }

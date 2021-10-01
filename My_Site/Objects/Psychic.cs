@@ -9,7 +9,7 @@ namespace WebTestTaskEasy.Objects
     {
         public int GetNumber(int Min, int Max)
         {
-            Random random = new Random();
+            Random random = new();
             return random.Next(Min, Max);
         }
     }

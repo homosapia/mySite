@@ -11,76 +11,76 @@ namespace WebTestTaskEasy.Objects
         public const int MinInput = 10;
         public const int MaxInput = 99;
 
-        private const int CountPsychics = 2;
+        private const int countPsychics = 2;
 
-        private IReferee Referee;
+        private IReferee ceferee;
 
-        private GameRound CurrentGameRound;
+        private GameRound currentGameRound;
 
-        private List<GameRound> GameRoundsHistory = new();
+        private List<GameRound> gameRoundsHistory = new();
 
-        private List<Psychic> Psychics = new();
+        private List<Psychic> psychics = new();
 
         public Game(IReferee referee)
         {
-            Referee = referee;
+            ceferee = referee;
             InitPsychics();
         }
 
 
         public Game(IReferee referee, GameData gameData)
         {
-            Referee = referee;
+            ceferee = referee;
 
-            CurrentGameRound = gameData.CurrentGameRound;
+            currentGameRound = gameData.CurrentGameRound;
 
-            GameRoundsHistory = gameData.GameRoundsHistory.ToList();
+            gameRoundsHistory = gameData.GameRoundsHistory.ToList();
 
-            Psychics = gameData.Psychics.ToList();
+            psychics = gameData.Psychics.ToList();
         }
 
         public GameData GetGameData()
         {
             GameData gameData = new();
-            gameData.CurrentGameRound = CurrentGameRound;
-            gameData.Psychics = Psychics.ToList();
-            gameData.GameRoundsHistory = GameRoundsHistory.ToList();
+            gameData.CurrentGameRound = currentGameRound;
+            gameData.Psychics = psychics.ToList();
+            gameData.GameRoundsHistory = gameRoundsHistory.ToList();
             return gameData;
         }
 
         public void NewRound()
         {
-            CurrentGameRound = new();
+            currentGameRound = new();
         }
 
         private void InitPsychics()
         {
-            for (int i = 0; i < CountPsychics; i++)
+            for (int i = 0; i < countPsychics; i++)
             {
                 Psychic psychic = new();
-                Psychics.Add(psychic);
+                psychics.Add(psychic);
             }
         }
 
         public List<int> GetPsychicTrusts()
         {
-            return Referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
+            return ceferee.CountPsychicTrust(gameRoundsHistory, psychics.Count);
         }
 
         public void FinishRound(int value)
         {
-            CurrentGameRound.UserNumber = value;
+            currentGameRound.UserNumber = value;
 
-            if (!GameRoundsHistory.Contains(CurrentGameRound))
-                GameRoundsHistory.Add(CurrentGameRound);
+            if (!gameRoundsHistory.Contains(currentGameRound))
+                gameRoundsHistory.Add(currentGameRound);
         }
 
         public void AskPsychics()
         {
-            CurrentGameRound.PredictionsPsychics.Clear();
-            for (int i = 0; i < Psychics.Count; i++)
+            currentGameRound.PredictionsPsychics.Clear();
+            for (int i = 0; i < psychics.Count; i++)
             {
-                CurrentGameRound.PredictionsPsychics.Add(Psychics[i].GetNumber(MinInput, MaxInput));
+                currentGameRound.PredictionsPsychics.Add(psychics[i].GetNumber(MinInput, MaxInput));
             }
         }
     }

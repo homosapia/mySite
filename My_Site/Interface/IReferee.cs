@@ -8,6 +8,6 @@ namespace WebTestTaskEasy.Interface
 {
     public interface IReferee
     {
-        public List<int> CountPsychicTrust(List<GameRound> rounds, int PsychicsCount);
+        public List<int> CountPsychicTrust(List<GameRound> rounds, int psychicsCount);
     }
 }
