@@ -8,12 +8,12 @@ namespace WebTestTaskEasy.Objects
 {
     public class Game
     {
-        public const int Min = 10;
-        public const int Max = 99;
+        public const int MinInput = 10;
+        public const int MaxInput = 99;
 
-        private const int CauntPsychics = 2;
+        private const int CountPsychics = 2;
 
-        private IReferee referee;
+        private IReferee Referee;
 
         private GameRound CurrentGameRound;
 
@@ -21,16 +21,16 @@ namespace WebTestTaskEasy.Objects
 
         private List<Psychic> Psychics = new();
 
-        public Game(IReferee _referee)
+        public Game(IReferee referee)
         {
-            referee = _referee;
+            Referee = referee;
             InitPsychics();
         }
 
 
         public Game(IReferee referee, GameData gameData)
         {
-            this.referee = referee;
+            Referee = referee;
 
             CurrentGameRound = gameData.CurrentGameRound;
 
@@ -48,14 +48,14 @@ namespace WebTestTaskEasy.Objects
             return gameData;
         }
 
-        public void СreateNewRound()
+        public void NewRound()
         {
             CurrentGameRound = new();
         }
 
         private void InitPsychics()
         {
-            for (int i = 0; i < CauntPsychics; i++)
+            for (int i = 0; i < CountPsychics; i++)
             {
                 Psychic psychic = new();
                 Psychics.Add(psychic);
@@ -64,7 +64,7 @@ namespace WebTestTaskEasy.Objects
 
         public List<int> GetPsychicTrusts()
         {
-            return referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
+            return Referee.CountPsychicTrust(GameRoundsHistory, Psychics.Count);
         }
 
         public void FinishRound(int value)
@@ -80,7 +80,7 @@ namespace WebTestTaskEasy.Objects
             CurrentGameRound.PredictionsPsychics.Clear();
             for (int i = 0; i < Psychics.Count; i++)
             {
-                CurrentGameRound.PredictionsPsychics.Add(Psychics[i].GetNumber(Min, Max));
+                CurrentGameRound.PredictionsPsychics.Add(Psychics[i].GetNumber(MinInput, MaxInput));
             }
         }
     }

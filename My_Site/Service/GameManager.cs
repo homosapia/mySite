@@ -9,35 +9,35 @@ using WebTestTaskEasy.Scripts;
 
 namespace WebTestTaskEasy.Service
 {
-    public class ManagerGame : IManagerGame
+    public class GameManager : IGameManager
     {
-        private IReferee referee;
-        private IGameStorage gameStorage;
+        private IReferee Referee;
+        private IGameStorage GameStorage;
 
-        public ManagerGame(IReferee referee, IGameStorage gameStorage)
+        public GameManager(IReferee referee, IGameStorage gameStorage)
         {
-            this.gameStorage = gameStorage;
-            this.referee = referee;
+            GameStorage = gameStorage;
+            Referee = referee;
         }
 
         public Game NewGame()
         {
-            return new Game(referee);
+            return new Game(Referee);
         }
 
         public Game GetGame()
         {
-            return new Game(referee, gameStorage.LoadGameData());
+            return new Game(Referee, GameStorage.LoadGameData());
         }
 
         public void SetGame(Game game)
         {
-            gameStorage.SaveGame(game);
+            GameStorage.SaveGame(game);
         }
 
         public bool ThereIsGame()
         {
-            return gameStorage.ThereIsGame();
+            return GameStorage.ThereIsGame();
         }
     }
 }

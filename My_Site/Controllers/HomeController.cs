@@ -9,38 +9,38 @@ namespace WebTestTaskEasy.Co
 {
     public class HomeController : Controller
     {
-        readonly IManagerGame gameFactory;
-        public HomeController(IManagerGame gameFactory)
+        readonly IGameManager GameManager;
+        public HomeController(IGameManager Manager)
         {
-            this.gameFactory = gameFactory;
+            GameManager = Manager;
         }
 
         public IActionResult ActivationGame()
         {
             Game game;
-            if (!gameFactory.ThereIsGame())
-                game = gameFactory.GetGame();
+            if (!GameManager.ThereIsGame())
+                game = GameManager.GetGame();
             else
-                game = gameFactory.NewGame();
+                game = GameManager.NewGame();
 
-            gameFactory.SetGame(game);
+            GameManager.SetGame(game);
             return View("~/Views/Home/StartRound.cshtml", game);
         }
 
         [HttpPost]
         public IActionResult NewRound()
         {
-            Game game = gameFactory.GetGame();
-            game.ÑreateNewRound();
+            Game game = GameManager.GetGame();
+            game.NewRound();
             game.AskPsychics();
 
-            gameFactory.SetGame(game);
+            GameManager.SetGame(game);
             return RedirectToAction("EnterNumber");
         }
 
         public IActionResult EnterNumber()
         {
-            return View(gameFactory.GetGame());
+            return View(GameManager.GetGame());
         }
 
         [HttpPost]
@@ -51,21 +51,21 @@ namespace WebTestTaskEasy.Co
                 return RedirectToAction("EnterNumber");
             }
 
-            Game game = gameFactory.GetGame();
+            Game game = GameManager.GetGame();
             game.FinishRound(number);
 
-            gameFactory.SetGame(game);
+            GameManager.SetGame(game);
             return RedirectToAction("StartRound");
         }
 
         private bool IsUserNumberInvalid(int number)
         {
-            return number < Game.Min || number > Game.Max;
+            return number < Game.MinInput || number > Game.MaxInput;
         }
 
         public IActionResult StartRound()
         {
-            return View(gameFactory.GetGame());
+            return View(GameManager.GetGame());
         }
     }
 }

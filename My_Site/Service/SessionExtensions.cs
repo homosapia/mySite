@@ -22,7 +22,7 @@ namespace WebTestTaskEasy.Scripts
             return JsonSerializer.Deserialize<GameData>(stringData);
         }
 
-        public static bool SessionData(this ISession session)
+        public static bool ThereIsGame(this ISession session)
         {
             return string.IsNullOrEmpty(session.GetString("GameData"));
         }

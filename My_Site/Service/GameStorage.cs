@@ -30,7 +30,7 @@ namespace WebTestTaskEasy.Service
 
         public bool ThereIsGame()
         {
-            return httpContextAccessor.HttpContext.Session.SessionData();
+            return httpContextAccessor.HttpContext.Session.ThereIsGame();
         }
     }
 }
