@@ -13,7 +13,7 @@ namespace WebTestTaskEasy.Objects
 
         private const int countPsychics = 2;
 
-        private IReferee ceferee;
+        private IReferee referee;
 
         private GameRound currentGameRound;
 
@@ -23,14 +23,14 @@ namespace WebTestTaskEasy.Objects
 
         public Game(IReferee referee)
         {
-            ceferee = referee;
+            this.referee = referee;
             InitPsychics();
         }
 
 
         public Game(IReferee referee, GameData gameData)
         {
-            ceferee = referee;
+            this.referee = referee;
 
             currentGameRound = gameData.CurrentGameRound;
 
@@ -64,7 +64,7 @@ namespace WebTestTaskEasy.Objects
 
         public List<int> GetPsychicTrusts()
         {
-            return ceferee.CountPsychicTrust(gameRoundsHistory, psychics.Count);
+            return referee.CountPsychicTrust(gameRoundsHistory, psychics.Count);
         }
 
         public void FinishRound(int value)
@@ -77,10 +77,10 @@ namespace WebTestTaskEasy.Objects
 
         public void AskPsychics()
         {
-            currentGameRound.PredictionsPsychics.Clear();
+            currentGameRound.PsychicNumder.Clear();
             for (int i = 0; i < psychics.Count; i++)
             {
-                currentGameRound.PredictionsPsychics.Add(psychics[i].GetNumber(MinInput, MaxInput));
+                currentGameRound.PsychicNumder.Add(psychics[i].GetNumber(MinInput, MaxInput));
             }
         }
     }

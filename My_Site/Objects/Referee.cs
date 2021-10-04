@@ -17,7 +17,7 @@ namespace WebTestTaskEasy.Objects
                 int trusts = 0;
                 for (int r = 0; r < rounds.Count; r++)
                 {
-                    if (rounds[r].PredictionsPsychics[p] == rounds[r].UserNumber)
+                    if (rounds[r].PsychicNumder[p] == rounds[r].UserNumber)
                         trusts++;
                     else
                         trusts--;

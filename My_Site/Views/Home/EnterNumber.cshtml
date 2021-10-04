@@ -1,12 +1,12 @@
 ﻿<form asp-controller="Home" asp-action="EndRound" method="post">
     <div>
-        @for (int i = 0; i < Model.GetGameData().CurrentGameRound.PredictionsPsychics.Count; i++)
+        @for (int i = 0; i < Model.GetGameData().CurrentGameRound.PsychicNumder.Count; i++)
         {
-            <h3>Предсказания экстрасенса №@(i+1): @Model.GetGameData().CurrentGameRound.PredictionsPsychics[i] </h3>
+            <h3>Предсказания экстрасенса №@(i+1): @Model.GetGameData().CurrentGameRound.PsychicNumder[i] </h3>
         }
     </div>
     <div>
-        <input min="@Game.Min" max="@Game.Max" type="number" name="number" placeholder="ввод">
+        <input min="@Game.MinInput" max="@Game.MaxInput" type="number" name="number" placeholder="ввод">
         <button type="submit">Отправить</button>
     </div>
 </form>
