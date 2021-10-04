@@ -77,10 +77,10 @@ namespace WebTestTaskEasy.Objects
 
         public void AskPsychics()
         {
-            currentGameRound.PsychicNumder.Clear();
+            currentGameRound.PsychicNumber.Clear();
             for (int i = 0; i < psychics.Count; i++)
             {
-                currentGameRound.PsychicNumder.Add(psychics[i].GetNumber(MinInput, MaxInput));
+                currentGameRound.PsychicNumber.Add(psychics[i].GetNumber(MinInput, MaxInput));
             }
         }
     }

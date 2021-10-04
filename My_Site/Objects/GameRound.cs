@@ -9,6 +9,6 @@ namespace WebTestTaskEasy.Objects
     { 
         public int UserNumber { get; set; }
 
-        public List<int> PsychicNumder { get; set; } = new();
+        public List<int> PsychicNumber { get; set; } = new();
     }
 }
